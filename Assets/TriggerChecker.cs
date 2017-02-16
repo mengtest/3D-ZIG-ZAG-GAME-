@@ -23,6 +23,7 @@ public class TriggerChecker : MonoBehaviour {
     }
     void FallDown() {
         GetComponentInParent<Rigidbody>().useGravity=true;
+        GetComponentInParent<Rigidbody>().isKinematic = false;//isKinematic property makes an object stay in its position 
         Destroy(transform.parent.gameObject, 2f);
     }
 }
