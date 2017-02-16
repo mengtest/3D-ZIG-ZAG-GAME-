@@ -53,4 +53,16 @@ public class BallController : MonoBehaviour {
             rb.velocity = new Vector3(0, 0, speed);
         }
     }
+    /***
+     * If the ball is colliding with an object
+     * that has a collider with a tag equal to "Diamond"
+     * that object is destroyed;
+     * **/
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Diamond")
+        {
+            Destroy(col.gameObject);
+        }
+    }
 }
