@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour {
     bool started;
     bool gameOver;
     Rigidbody rb;
+    public GameObject particle;
 
 
     void Awake() {
@@ -23,7 +24,7 @@ public class BallController : MonoBehaviour {
     void Update() {
         if (!started)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 rb.velocity = new Vector3(speed, 0, 0);
                 started = true;
@@ -36,7 +37,7 @@ public class BallController : MonoBehaviour {
             Camera.main.GetComponent<CameraFollow>().gameOver = true;
 
         }
-        if (Input.GetMouseButton(0) && !gameOver)
+        if (Input.GetMouseButtonDown(0) && !gameOver)
             {
                 SwitchDirection();
             }
@@ -62,6 +63,7 @@ public class BallController : MonoBehaviour {
     {
         if (col.gameObject.tag == "Diamond")
         {
+            GameObject part= Instantiate(particle, col.gameObject.transform.position, Quaternion.identity) as GameObject; ;
             Destroy(col.gameObject);
         }
     }
