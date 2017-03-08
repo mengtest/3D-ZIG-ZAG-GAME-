@@ -22,16 +22,17 @@ public class ScoreManager : MonoBehaviour {
 		
 	}
 
-    void incrementScore() {
+    void IncrementScore() {
         score += 1;
+        PlayerPrefs.SetInt("score", score);
     }
-    public void startScore()
+    public void StartScore()
     {
-        InvokeRepeating("incrementScore", 0.1f, 0.5f);//call it after 0.1sec and after  that repeately ech 0.5 sec.
+        InvokeRepeating("IncrementScore", 0.1f, 0.5f);//call it after 0.1sec and after  that repeately ech 0.5 sec.
     }
     public void StopScore()
     {
-        CancelInvoke("startScore");
+        CancelInvoke("IncrementScore");
         PlayerPrefs.SetInt("score", score);
         if (PlayerPrefs.HasKey("highScore"))
         {

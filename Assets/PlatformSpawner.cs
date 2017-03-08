@@ -18,12 +18,17 @@ public class PlatformSpawner : MonoBehaviour {
         lastPos = platform.transform.position;
         size = platform.transform.localScale.x;//we have same size on x and z.
         for (int i = 0; i < 20; i++) { SpawnPlatforms(); }
-        InvokeRepeating("SpawnPlatforms", 2f, 0.2f);//calls SpawnPlatforms after 2 sec and each 0.2 sec after the first call
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (gameOver) { CancelInvoke("SpawnPlatforms"); }//cancel invokeRepeating for SpawnPlatforms()
+
+    public void StartSpawningPlatforms() {
+        InvokeRepeating("SpawnPlatforms", 0.2f, 0.2f);//calls SpawnPlatforms after 2 sec and each 0.2 sec after the first call
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (GameManager.instance.gameOver) {
+            CancelInvoke("SpawnPlatforms");
+        }//cancel invokeRepeating for SpawnPlatforms()
     }
     //let's create a function that call SpawnX and SpawnZ randomly
     void SpawnPlatforms()

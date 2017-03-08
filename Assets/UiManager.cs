@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;//to reload the scene
 public class UiManager : MonoBehaviour {
     public static UiManager instance;
     public GameObject zigzagPanel;
-    public GameObject gameOverPanel1;
+    public GameObject gameOverPanel;
     public GameObject tapText;
-    public Text score;
+    public Text finalScore;
     public Text highScore1;
     public Text highScore2;
+    public Text score;
 
     void Awake()//called before Start()
     {
@@ -19,8 +20,8 @@ public class UiManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
-	}
+        highScore1.text ="High Score: "+ PlayerPrefs.GetInt("highScore").ToString();
+    }
     public void GameStart()
     {
         tapText.SetActive(false);
@@ -28,7 +29,9 @@ public class UiManager : MonoBehaviour {
     }
     public void GameOver()
     {
-        gameOverPanel1.SetActive(true);
+        finalScore.text = PlayerPrefs.GetInt("score").ToString();
+        highScore2.text = PlayerPrefs.GetInt("highScore").ToString();
+        gameOverPanel.SetActive(true);
     }
 
     public void Reset() {
@@ -37,6 +40,6 @@ public class UiManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+		score.text= PlayerPrefs.GetInt("score").ToString();
+    }
 }

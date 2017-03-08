@@ -66,7 +66,8 @@ public class BallController : MonoBehaviour {
     {
         if (col.gameObject.tag == "Diamond")
         {
-            GameObject part= Instantiate(particle, col.gameObject.transform.position, Quaternion.identity) as GameObject; ;
+            GameObject part= Instantiate(particle, col.gameObject.transform.position, Quaternion.identity) as GameObject;
+            ScoreManager.instance.score += 2;
             Destroy(col.gameObject);
         }
     }
