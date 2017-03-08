@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour {
     }
     public void startScore()
     {
-        InvokeRepetin("incrementScore", 0.1f, 0.5f);//call it after 0.1sec and after  that repeately ech 0.5 sec.
+        InvokeRepeating("incrementScore", 0.1f, 0.5f);//call it after 0.1sec and after  that repeately ech 0.5 sec.
     }
     public void StopScore()
     {

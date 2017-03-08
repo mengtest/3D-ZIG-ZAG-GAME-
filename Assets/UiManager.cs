@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;//to reload the scene
 public class UiManager : MonoBehaviour {
     public static UiManager instance;
     public GameObject zigzagPanel;
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel1;
     public GameObject tapText;
     public Text score;
     public Text highScore1;
@@ -28,7 +28,7 @@ public class UiManager : MonoBehaviour {
     }
     public void GameOver()
     {
-        gameOverPanel.SetActive(true);
+        gameOverPanel1.SetActive(true);
     }
 
     public void Reset() {
